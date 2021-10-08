@@ -1,0 +1,173 @@
+<html>
+
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/all.min.css" />
+  <link rel="stylesheet" href="css/index_style.css" />
+  <link rel="icon" href="images/image_6.jpg" />
+  <title>movies</title>
+</head>
+
+<body>
+  <!-- loading Page -->
+  <section id="loading" class="justify-content-center align-items-center">
+    <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
+    </div>
+  </section>
+
+  <!-- side Bar -->
+  <nav>
+    <div class="innerBox">
+      <div class="nav-item">
+        <ul>
+          <li class="item1"><a class="nav-category" href="#">Now playing</a></li>
+          <li class="item2"><a class="nav-category" href="#">popular</a></li>
+          <li class="item3"><a class="nav-category" href="#">Top Rated</a></li>
+          <li class="item5"><a class="nav-category" href="#">Trending</a></li>
+          <li class="item6"><a class="nav-category" href="#">Upcoming</a></li>
+          <li class="item6"><a class="nav-category" href="#contact">Contact Us</a></li>
+
+
+        </ul>
+      </div>
+      <div class="nav-social-item">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fas fa-globe"></i></a>
+        <div class="p-3">
+          <span>Copyright Â© 2019 All Rights Reserved.</span>
+        </div>
+
+      </div>
+    </div>
+    <div class="HeaderIcons d-flex flex-column justify-content-between align-items-center vh-100">
+      <div class="logo mt-4">
+        <img src="images/logo.png" alt="">
+      </div>
+      <div class="button">
+        <i id="toggleBtn" class="fa fa-align-justify"></i>
+        <!-- <i class="fas fa-times"></i> -->
+      </div>
+
+      <div class="strip-social-icon mb-5">
+        <div class="strip-lang">
+          <span>
+            <i class="fas fa-globe my-4"></i>
+          </span>
+        </div>
+        <div class="strip-share">
+          <span>
+            <i class="fas fa-share-alt"></i>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- search input-->
+  <section id="movie" class="py-5">
+
+    <div class="container w-75">
+      <div class="row">
+        <div class="col-md-6">
+          <form id="form">
+            <input id="allMovies" class="form-control mb-5 " placeholder="get movies by word...">
+          </form>
+        </div>
+        <div class="col-md-6">
+          <input class="form-control " id="word" onkeyup="search(this.value)" placeholder="search...">
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container text-center my-1 py-2">
+      <div class="row" id="movies">
+
+
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- contact US -->
+  <section id="contact" class="container w-75 mx-auto my-5">
+    <h2 class="text-light my-5">ContacUs...</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <input class="form-control" id="userName" placeholder="Enter Your Name">
+          <div class="alert alert-danger d-none" id="namealert" role="alert">
+            Your Name is not valid
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input class="form-control" id="userEmail" placeholder="Enter Email">
+          <div class="alert alert-danger d-none" id="emailalert" role="alert">
+            entre valid email examle@yahoo.com
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input class="form-control" id="phone" placeholder="Enter phone">
+          <div class="alert alert-danger d-none" id="phonealert" role="alert">
+            entre valid phone
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input class="form-control" id="age" placeholder="Enter Age">
+          <div class="alert alert-danger d-none" id="agealert" role="alert" style="display: none;">
+            entre valid Age from 10 to 100
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input class="form-control" type="password" id="password" placeholder="Enter Password">
+          <div class="alert alert-danger d-none" id="passwordalert" role="alert">
+            entre valid password *Minimum eight characters, at least one letter and one number:*
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <input class="form-control" type="password" id="rePassword" placeholder="Enter RePassword">
+          <div class="alert alert-danger d-none" id="repasswordalert" role="alert">
+            entre valid Repassword
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+    <button type="submit" id="submitBtn" class="btn btn-outline-success">Submit</button>
+
+  </section>
+
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/mine.js"></script>
+</body>
+
+</html>
