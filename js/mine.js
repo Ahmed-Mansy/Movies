@@ -283,7 +283,7 @@ function confirmPassword() {
 function errorMailf() {
   if (userName.value != '' && userEmail.value != '' && phone.value != '' && age.value != '' && password.value != '' && rePassword.value != '') {
    
-    NameOfUser.value=userName.value;
+    NameOfUser.innerHTML=userName.value;
     errorMail.classList.replace("d-none", "d-block")
   }
   else {
