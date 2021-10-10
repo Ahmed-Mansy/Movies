@@ -2,6 +2,7 @@ let moviesList = [];
 let allMoveSearch = [];
 let movie_id = '';
 // let word = document.getElementById("word");
+let sideBar = document.getElementById("sideBar");
 let form = document.getElementById("form");
 let allMovies = document.getElementById("allMovies");
 let userName = document.getElementById("userName");
@@ -17,7 +18,9 @@ let passwordalert = document.getElementById("passwordalert");
 let rePassword = document.getElementById("rePassword");
 let repasswordalert = document.getElementById("repasswordalert");
 let submitBtn = document.getElementById("submitBtn");
-
+let errorMail = document.getElementById("errorMail");
+let NameOfUser = document.getElementById("NameOfUser");
+let boxContainer = document.getElementById("boxContainer");
 
 let nowURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=21dd67c0ceaaea8f22688f9bdfaa8a87&language=en-US&page=1`;
 const nowPlayingURL = `https://api.themoviedb.org/3/movie/now_playing?api_key=21dd67c0ceaaea8f22688f9bdfaa8a87&language=en-US&page=1`;
@@ -189,7 +192,7 @@ function displaySearch() {
 }
 
 function validationName() {
-  let regex = /^[a-z]{3,9}$/
+  let regex = /^[a-zA-Z]{3,9}$/
   if (regex.test(userName.value) == true) {
     userName.classList.add("is-valid")
     userName.classList.remove("is-invalid")
@@ -205,7 +208,7 @@ function validationName() {
 
 
 function validationEmail() {
-  let regex = /^[a-z]{3,8}@(yahoo|gmail).com$/
+  let regex = /^[a-zA-Z]{3,8}@(yahoo|gmail).com$/
   if (regex.test(userEmail.value) == true) {
     userEmail.classList.add("is-valid")
     userEmail.classList.remove("is-invalid")
@@ -262,29 +265,31 @@ function passwordValidation() {
 }
 
 
-function confirmPassword(){
-  if (password.value==rePassword.value)
-  {
+function confirmPassword() {
+  if (password.value == rePassword.value) {
     rePassword.classList.add("is-valid")
     rePassword.classList.remove("is-invalid")
     repasswordalert.classList.replace("d-block", "d-none")
   }
-  else
-  {
+  else {
     rePassword.classList.add("is-invalid")
     rePassword.classList.remove("is-valid")
     repasswordalert.classList.replace("d-none", "d-block")
   }
 }
 
-function submitDis(){
-  if(userName.value=='' && userEmail.value==''&& phone.value==''&& age.value==''&& password.value==''&& rePassword.value=='')
-  {
+
+
+function errorMailf() {
+  if (userName.value != '' && userEmail.value != '' && phone.value != '' && age.value != '' && password.value != '' && rePassword.value != '') {
+   
+    NameOfUser.value=userName.value;
+    errorMail.classList.replace("d-none", "d-block")
+  }
+  else {
     alert("all inputs required !!")
   }
 }
-
-
 
 userName.addEventListener('keyup', validationName)
 userEmail.addEventListener('keyup', validationEmail)
@@ -292,13 +297,48 @@ phone.addEventListener('keyup', validationPhoneNumber)
 age.addEventListener('keyup', validationAge)
 password.addEventListener('keyup', passwordValidation)
 rePassword.addEventListener('keyup', confirmPassword)
-submitBtn.addEventListener('click', submitDis)
+submitBtn.addEventListener('click', errorMailf)
 
-$("a").click(function(e){
-  let aHref= e.target.getAttribute('href');
+$("a").click(function (e) {
+  let aHref = e.target.getAttribute('href');
   let sectionOffset = $(aHref).offset().top;
-  $("html,body").animate({scrollTop:sectionOffset},1000)
+  $("html,body").animate({ scrollTop: sectionOffset }, 1000)
 })
+
+document.addEventListener("keyup", (e) => {
+  let code = e.code;
+  if (code == 'Escape') {
+    let innerBoxWidth = $(".innerBox").outerWidth();
+    if ($("nav").css("left") == "0px") {
+      $("nav").animate({ left: `-${innerBoxWidth}` }, 600)
+      $('.innerBox .nav-item ul li').animate({ opacity: '0', paddingTop: '500px' }, 1000)
+  
+    }
+  }
+})
+
+// $(".layer").click(function(e){
+//   console.log("here")
+// })
+
+// let myImgs = Array.from(document.querySelectorAll("#movie .poster img"));
+
+// for (let i = 0; i < myImgs.length; i++) {
+//   myImgs[i].addEventListener("click", function (eventInfo) {
+//       // boxContainer.style.display = "flex";
+//       // let imgSrc = eventInfo.target.getAttribute("src")
+//       // innerBox.style.backgroundImage = `url(${imgSrc})`;
+//       console.log("here")
+
+//   })
+// }
+
+
+
+
+
+
+
 // $("#password", "#rePassword").on("keyup", function () {
 //   if ($("#password").val == $('#rePassword').val()) {
 //     ("#rePassword").addClass("is-valid");

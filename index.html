@@ -24,17 +24,19 @@
       <div class="sk-cube sk-cube9"></div>
     </div>
   </section>
+  <section id="up"></section>
 
   <!-- side Bar -->
-  <nav>
+  
+  <nav id="sideBar">
     <div class="innerBox">
       <div class="nav-item">
         <ul>
-          <li class="item1"><a class="nav-category" href="#">Now playing</a></li>
-          <li class="item2"><a class="nav-category" href="#">popular</a></li>
-          <li class="item3"><a class="nav-category" href="#">Top Rated</a></li>
-          <li class="item5"><a class="nav-category" href="#">Trending</a></li>
-          <li class="item6"><a class="nav-category" href="#">Upcoming</a></li>
+          <li class="item1"><a class="nav-category" href="#up">Now playing</a></li>
+          <li class="item2"><a class="nav-category" href="#up">popular</a></li>
+          <li class="item3"><a class="nav-category" href="#up">Top Rated</a></li>
+          <li class="item5"><a class="nav-category" href="#up">Trending</a></li>
+          <li class="item6"><a class="nav-category" href="#up">Upcoming</a></li>
           <li class="item6"><a class="nav-category" href="#contact">Contact Us</a></li>
 
 
@@ -77,10 +79,12 @@
   </nav>
 
 
-  <!-- search input-->
   <section id="movie" class="py-5">
 
+
     <div class="container w-75">
+      <!-- search input-->
+
       <div class="row">
         <div class="col-md-6">
           <form id="form">
@@ -93,6 +97,8 @@
 
       </div>
     </div>
+
+    <!-- movies List -->
 
     <div class="container text-center my-1 py-2">
       <div class="row" id="movies">
@@ -161,9 +167,26 @@
     </div>
 
     <button type="submit" id="submitBtn" class="btn btn-outline-success">Submit</button>
+    <div class="alert alert-danger d-none my-3" id="errorMail" role="alert">
+      Sorry <strong id="NameOfUser"></strong> , it seems that my mail server is not responding. Please try again later!
+    </div>
 
   </section>
 
+  <!-- box -->
+  <section id="boxContainer" class=" justify-content-center align-items-center">
+    <div id="innerBox">
+      <div class="layerInner d-flex align-items-center justify-content-center position-relative">
+        <i id="close" class="far fa-times-circle position-absolute top-0 end-0 m-2"></i>
+        <div id="myInfo" class="info text-center">
+          <h2>${moviesList[i].original_title}</h2>
+          <p>${moviesList[i].overview}</p>
+          <p>rate: ${moviesList[i].vote_average}</p>
+          <p>${moviesList[i].release_date}</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
