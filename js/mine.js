@@ -151,7 +151,7 @@ function search(word) {
 
 }
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("keyup", (e) => {
   e.preventDefault();
   const searchTerm = allMovies.value;
   //  if(searchTerm && searchTerm!==''){
@@ -311,7 +311,8 @@ document.addEventListener("keyup", (e) => {
     let innerBoxWidth = $(".innerBox").outerWidth();
     if ($("nav").css("left") == "0px") {
       $("nav").animate({ left: `-${innerBoxWidth}` }, 600)
-      $('.innerBox .nav-item ul li').animate({ opacity: '0', paddingTop: '500px' }, 1000)
+      $('.innerBox .nav-item ul li').animate({ opacity: '0', paddingTop: '500px' }, 1000);
+      $("#toggleBtn").toggleClass("fa-align-justify fa-times", 1000);
   
     }
   }
